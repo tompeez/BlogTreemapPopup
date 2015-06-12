@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BTMPAppModule"
+  Version="12.1.3.9.1"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="Departments"
+    ViewObjectName="de.hahn.blog.treemappopup.model.adfbc.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesOfDepartment"
+    ViewObjectName="de.hahn.blog.treemappopup.model.adfbc.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="de.hahn.blog.treemappopup.model.adfbc.views.links.EmpDeptFkLink"
+    SrcViewUsageName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule.Departments"
+    DstViewUsageName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule.EmployeesOfDepartment"
+    Reversed="false"/>
+</AppModule>

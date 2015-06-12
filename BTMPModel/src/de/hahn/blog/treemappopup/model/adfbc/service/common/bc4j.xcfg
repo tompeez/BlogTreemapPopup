@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule">
+      <AppModuleConfig name="BTMPAppModuleLocal" jbo.project="de.hahn.blog.treemappopup.model.BTMPModel" ApplicationName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule" DeployPlatform="LOCAL">
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/HRConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="BTMPAppModuleShared" jbo.project="de.hahn.blog.treemappopup.model.BTMPModel" ApplicationName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="de.hahn.blog.treemappopup.model.adfbc.service.BTMPAppModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/HRConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="Treemap Popup Sample" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <dvt:treemap id="t1" value="#{bindings.Departments.treeModel}" var="row">
+                            <af:switcher facetName="#{row.hierTypeBinding.name}" id="s1">
+                                <f:facet name="Departments0">
+                                    <dvt:treemapNode value="#{row.DepartmentId}" label="#{row.DepartmentName}" id="tn1"/>
+                                </f:facet>
+                                <f:facet name="Departments1">
+                                    <dvt:treemapNode value="#{row.EmployeeId}" label="#{row.LastName}" id="tn2">
+                                        <af:showPopupBehavior popupId="::p1" triggerType="click" align="afterStart"/>
+                                    </dvt:treemapNode>
+                                </f:facet>
+                            </af:switcher>
+                        </dvt:treemap>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached" launcherVar="source"
+                                  eventContext="launcher" popupFetchListener="#{TreemapBean.fetchListener}">
+                            <af:dialog id="d2">
+                                <f:facet name="buttonBar"/>
+                                <af:panelGroupLayout id="pgl2">
+                                    <af:outputText value="Info from #{bindings.nodeInfo1.inputValue}" id="ot2"/>
+                                </af:panelGroupLayout>
+                            </af:dialog>
+                        </af:popup>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

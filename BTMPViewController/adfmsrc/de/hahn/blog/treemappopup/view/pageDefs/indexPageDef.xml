@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.9.1" id="indexPageDef"
+                Package="de.hahn.blog.treemappopup.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="nodeInfo" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="Departments" RangeSize="-1" DataControl="BTMPAppModuleDataControl" id="DepartmentsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsIterator" id="Departments">
+      <nodeDefinition DefName="de.hahn.blog.treemappopup.model.adfbc.views.DepartmentsView" Name="Departments0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="EmployeesView"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.hahn.blog.treemappopup.model.adfbc.views.EmployeesView" Name="Departments1">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="EmployeeId"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="nodeInfo1">
+      <AttrNames>
+        <Item Value="nodeInfo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
