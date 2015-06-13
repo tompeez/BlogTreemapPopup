@@ -14,13 +14,13 @@
                 <af:gridRow height="100%" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                         <!-- Content -->
-                        <dvt:treemap id="t1" value="#{bindings.Departments.treeModel}" var="row">
+                        <dvt:treemap id="t1" value="#{bindings.Departments.treeModel}" var="row" nodeSelection="single">
                             <af:switcher facetName="#{row.hierTypeBinding.name}" id="s1">
                                 <f:facet name="Departments0">
-                                    <dvt:treemapNode value="#{row.DepartmentId}" label="#{row.DepartmentName}" id="tn1"/>
+                                    <dvt:treemapNode value="#{row.DepartmentId}" label="#{row.DepartmentName}" id="tn1" fillColor="#00a500"/>
                                 </f:facet>
                                 <f:facet name="Departments1">
-                                    <dvt:treemapNode value="#{row.EmployeeId}" label="#{row.LastName}" id="tn2">
+                                    <dvt:treemapNode value="#{row.EmployeeId}" label="#{row.LastName}" id="tn2" fillColor="#42c6ff">
                                         <af:showPopupBehavior popupId="::p1" triggerType="click" align="afterStart"/>
                                     </dvt:treemapNode>
                                 </f:facet>
